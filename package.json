@@ -1,5 +1,5 @@
 {
-  "name": "lev",
+  "name": "lev2",
   "version": "3.3.1",
   "main": "index.js",
   "bin": "./bin/lev",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hij1nx/lev.git"
+    "url": "https://github.com/maxlath/lev.git"
   },
   "keywords": [
     "leveldb",
@@ -27,13 +27,13 @@
     "key/value"
   ],
   "preferGlobal": true,
-  "author": "hij1nx",
+  "author": "maxlath",
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/hij1nx/lev/issues"
+    "url": "https://github.com/maxlath/lev/issues"
   },
-  "homepage": "https://github.com/hij1nx/lev",
+  "homepage": "https://github.com/maxlath/lev",
   "dependencies": {
     "bytewise": "^1.1.0",
     "cli-prompt": "^0.6.0",
