@@ -2,7 +2,9 @@
   "name": "lev2",
   "version": "4.0.0",
   "main": "index.js",
-  "bin": "./bin/lev",
+  "bin": {
+    "lev": "./bin/lev"
+  },
   "description": "CLI & REPL for LevelDB",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
