@@ -1,6 +1,7 @@
-# lev
+# lev2
 
 A simple and convenient commandline tool and REPL for [`leveldb`](http://leveldb.org/).
+This repo is a fork of [`lev`](https://github.com/hxoht/lev), originally to make [those changes](https://github.com/hxoht/lev/pull/59) available from NPM
 
 ## Features
 * [REPL](#repl-commands)
@@ -51,7 +52,7 @@ A simple and convenient commandline tool and REPL for [`leveldb`](http://leveldb
 ## Installation
 
 ```
-$ npm install -g lev@https://github.com/maxlath/lev#master
+$ npm install -g lev2
 ```
 
 ## REPL commands
