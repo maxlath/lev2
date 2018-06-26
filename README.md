@@ -1,13 +1,16 @@
 # lev2
 
-A simple and convenient commandline tool and REPL for [`leveldb`](http://leveldb.org/).
-This repo is a fork of [`lev`](https://github.com/hxoht/lev), originally to make [those changes](https://github.com/hxoht/lev/pull/59) available from NPM
+A [CLI](https://en.wikipedia.org/wiki/Command-line_interface) and a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for managing [`LevelDB`](http://leveldb.org/) instances.
+
+This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to make [those changes](https://github.com/hxoht/lev/pull/59) available from NPM
 
 ## Features
-* [REPL](#repl-commands)
+* [CLI](#cli)
+  * providing many basic tools to read and write on a leveldb from the command line
+  * import / export, and delete by range
+* [REPL](#repl)
   * with colorized tab-completion and zsh/fish style key suggestions
   * automatically saves and reloads REPL history
-* [CLI](#cli-commands)
 
 ![screenshot](/docs/screenshot.png)
 
@@ -18,15 +21,6 @@ This repo is a fork of [`lev`](https://github.com/hxoht/lev), originally to make
 
 
 - [Installation](#installation)
-- [REPL commands](#repl-commands)
-  - [GET &lt;key&gt;](#get-ltkeygt)
-  - [PUT &lt;key&gt; &lt;value&gt;](#put-ltkeygt-ltvaluegt)
-  - [DEL &lt;key&gt;](#del-ltkeygt)
-  - [LS](#ls)
-  - [START &lt;key-pattern&gt;](#start-ltkey-patterngt)
-  - [END &lt;key-pattern&gt;](#end-ltkey-patterngt)
-  - [LIMIT &lt;number&gt;](#limit-ltnumbergt)
-  - [REVERSE](#reverse)
 - [CLI commands](#cli-commands)
   - [--get &lt;key&gt;](#--get-ltkeygt)
   - [--put &lt;key&gt;](#--put-ltkeygt)
@@ -46,6 +40,16 @@ This repo is a fork of [`lev`](https://github.com/hxoht/lev), originally to make
   - [--length](#--length)
   - [--valueEncoding &lt;string&gt;](#--valueencoding-ltstringgt)
   - [--location &lt;string&gt;](#--location-ltstringgt)
+- [--map &lt;JS function string or path&gt;](#--map-ltjs-function-string-or-pathgt)
+- [REPL](#repl)
+  - [GET &lt;key&gt;](#get-ltkeygt)
+  - [PUT &lt;key&gt; &lt;value&gt;](#put-ltkeygt-ltvaluegt)
+  - [DEL &lt;key&gt;](#del-ltkeygt)
+  - [LS](#ls)
+  - [START &lt;key-pattern&gt;](#start-ltkey-patterngt)
+  - [END &lt;key-pattern&gt;](#end-ltkey-patterngt)
+  - [LIMIT &lt;number&gt;](#limit-ltnumbergt)
+  - [REVERSE](#reverse)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -54,43 +58,6 @@ This repo is a fork of [`lev`](https://github.com/hxoht/lev), originally to make
 ```
 $ npm install -g lev2
 ```
-
-## REPL commands
-
-Start the REPL
-```sh
-# in the current directory
-$ lev
-# somewhere else
-$ lev path/to/db
-```
-
-Use upper or lower case for the following commands.
-
-### GET &lt;key&gt;
-Get a key from the database.
-
-### PUT &lt;key&gt; &lt;value&gt;
-Put a value into the database. If you have `keyEncoding` or `valueEncoding`
-set to `json`, these values will be parsed from strings into `json`.
-
-### DEL &lt;key&gt;
-Delete a key from the database.
-
-### LS
-Get all the keys in the current range.
-
-### START &lt;key-pattern&gt;
-Defines the start of the current range. You can also use `GT` or `GTE`.
-
-### END &lt;key-pattern&gt;
-Defines the end of the current range. You can also use `LT` or `LTE`.
-
-### LIMIT &lt;number&gt;
-Limit the number of records in the current range (defaults to 5000).
-
-### REVERSE
-Reverse the records in the current range.
 
 ## CLI commands
 These all match the parameters used with [`levelup`](https://github.com/rvagg/node-levelup). The default encoding for the database is set to `json`.
@@ -290,3 +257,41 @@ lev --keys --map ./map_fn.js
 ```
 
 If the function, returns null or undefined, the result is filtered-out
+
+
+## REPL
+
+Start the REPL
+```sh
+# in the current directory
+$ lev
+# somewhere else
+$ lev path/to/db
+```
+
+Use upper or lower case for the following commands.
+
+### GET &lt;key&gt;
+Get a key from the database.
+
+### PUT &lt;key&gt; &lt;value&gt;
+Put a value into the database. If you have `keyEncoding` or `valueEncoding`
+set to `json`, these values will be parsed from strings into `json`.
+
+### DEL &lt;key&gt;
+Delete a key from the database.
+
+### LS
+Get all the keys in the current range.
+
+### START &lt;key-pattern&gt;
+Defines the start of the current range. You can also use `GT` or `GTE`.
+
+### END &lt;key-pattern&gt;
+Defines the end of the current range. You can also use `LT` or `LTE`.
+
+### LIMIT &lt;number&gt;
+Limit the number of records in the current range (defaults to 5000).
+
+### REVERSE
+Reverse the records in the current range.
