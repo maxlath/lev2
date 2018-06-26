@@ -1,52 +1,48 @@
-var completion = require('./lib/completion');
-var history = require('./lib/history');
-var createREPL = require('./lib/repl');
-var getDB = require('./lib/db');
-var locate = require('./lib/location');
-var cache = require('./lib/cache');
-var cli = require('./lib/cli');
+const completion = require('./lib/completion')
+const history = require('./lib/history')
+const createREPL = require('./lib/repl')
+const getDB = require('./lib/db')
+const locate = require('./lib/location')
+const cache = require('./lib/cache')
+const cli = require('./lib/cli')
 
-module.exports = function(args) {
-
+module.exports = function (args) {
   //
   // find where the location by examining the arguments
   // and create an instance to work with.
   //
-  locate(args, function (err) {
+  locate(args, err => {
     if (err) {
-      console.error(err);
-      return process.exit(1);
+      console.error(err)
+      return process.exit(1)
     }
-    init(args);
-  });
-};
+    init(args)
+  })
+}
 
 function init (args) {
-  var db = getDB(args);
+  const db = getDB(args)
 
   //
   // if any of these commands are specified as arguments
   // than the program should not be run in REPL mode.
   //
-  var cliCommands = [
+  const cliCommands = [
     'keys', 'values', 'get', 'match', 'put', 'del',
     'all', 'batch', 'length', 'start', 'end', 'limit', 'map'
-  ];
+  ]
 
-  var cliMode = Object.keys(args).some(function(cmd) {
-    return cliCommands.indexOf(cmd) > -1;
-  });
+  const cliMode = Object.keys(args).some(cmd => {
+    return cliCommands.indexOf(cmd) > -1
+  })
 
-  if (cliMode) {
-    return cli(db, args);
-  }
+  if (cliMode) return cli(db, args)
 
   //
   // create the instance of the repl and start it.
   //
-  var repl = createREPL(db, args, cache);
+  const repl = createREPL(db, args, cache)
 
-  history(repl, args);
-  completion(repl, cache);
-};
-
+  history(repl, args)
+  completion(repl, cache)
+}

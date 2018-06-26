@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var fs = require('fs');
-var args = require('rc')('lev');
-require('../index')(args);
-
+const fs = require('fs')
+const args = require('rc')('lev')
+require('../index')(args)
