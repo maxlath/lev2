@@ -26,7 +26,13 @@
     "nodebase",
     "db",
     "keyvalue",
-    "key/value"
+    "key/value",
+    "cli",
+    "import",
+    "export",
+    "batch",
+    "range",
+    "count"
   ],
   "preferGlobal": true,
   "author": "maxlath",
