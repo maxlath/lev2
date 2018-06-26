@@ -8,7 +8,7 @@
   "description": "CLI & REPL for LevelDB",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-toc": "doctoc README.md"
+    "update-toc": "./scripts/update_toc"
   },
   "repository": {
     "type": "git",
