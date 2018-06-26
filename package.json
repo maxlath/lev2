@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxlath/lev.git"
+    "url": "https://github.com/maxlath/lev2.git"
   },
   "keywords": [
     "leveldb",
@@ -39,9 +39,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/maxlath/lev/issues"
+    "url": "https://github.com/maxlath/lev2/issues"
   },
-  "homepage": "https://github.com/maxlath/lev",
+  "homepage": "https://github.com/maxlath/lev2",
   "dependencies": {
     "bytewise": "^1.1.0",
     "cli-prompt": "^0.6.0",
