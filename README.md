@@ -116,14 +116,17 @@ lev --batch ./ops.json
 #### Import / Export
 If the type is omitted, defaults to `put`, which allows to use the command to do imports/exports, in combination with [`--all`](#--all):
 ```sh
+# export
 lev --all > leveldb.export
+# import
 lev /tmp/my-new-db --batch leveldb.export
 ```
-If it's a large export, you can compress it on the fly
+If it's a large export, you can use compress it on the fly
 ```sh
+# export
 lev --all | gzip -9 > leveldb.export.gz
-gzip -dk leveldb.export.gz
-lev /tmp/my-new-db --batch leveldb.export
+# import
+gzip -d < leveldb.export.gz | lev /tmp/my-new-db --batch
 ```
 
 #### Delete by range
