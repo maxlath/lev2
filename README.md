@@ -136,7 +136,7 @@ lev --batch ./to_delete --del
 ```
 
 ### --keys
-List all the keys in the current range. Will tabularize the output by default (see `--line`).
+List all the keys in the current range
 ```sh
 lev --keys
 ```
@@ -209,12 +209,6 @@ Reverse the stream.
 ```sh
 lev --keys --reverse
 lev --keys --start 'foo' --end 'fooz' --limit 100 --reverse
-```
-
-### --line
-Output one key per line (instead of the default tabularized output)
-```sh
-lev --keys --line
 ```
 
 ### --length
