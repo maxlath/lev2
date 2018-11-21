@@ -11,17 +11,17 @@ module.exports = function (args) {
   // find where the location by examining the arguments
   // and create an instance to work with.
   //
-  locate(args, err => {
+  locate(args, (err, dbParams) => {
     if (err) {
       console.error(err)
       return process.exit(1)
     }
-    init(args)
+    init(args, dbParams)
   })
 }
 
-function init (args) {
-  const db = getDB(args)
+function init (args, dbParams) {
+  const db = getDB(args, dbParams)
 
   //
   // if any of these commands are specified as arguments
