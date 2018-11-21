@@ -36,8 +36,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
   - [--match &lt;key-pattern&gt;](#--match-key-pattern)
   - [--limit &lt;number&gt;](#--limit-number)
   - [--reverse](#--reverse)
-  - [--line](#--line)
-  - [--length](#--length)
+  - [--count](#--count)
   - [--valueEncoding &lt;string&gt;](#--valueencoding-string)
   - [--location &lt;string&gt;](#--location-string)
 - [--map &lt;JS function string or path&gt;](#--map-js-function-string-or-path)
@@ -214,13 +213,13 @@ lev --keys --reverse
 lev --keys --start 'foo' --end 'fooz' --limit 100 --reverse
 ```
 
-### --length
-Output the length of the current range
+### --count
+Output the count of the current range
 ```sh
 # Count all the key/value pairs in the database
-lev --length
+lev --count
 # Counts the keys and values between 'foo' and 'fooz'
-lev --start 'foo' --end 'fooz' --length
+lev --start 'foo' --end 'fooz' --count
 ```
 
 ### --valueEncoding &lt;string&gt;
