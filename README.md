@@ -21,7 +21,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
 
 
 - [Installation](#installation)
-- [CLI commands](#cli-commands)
+- [CLI](#cli)
   - [--get &lt;key&gt;](#--get-key)
   - [--put &lt;key&gt;](#--put-key)
   - [--del &lt;key&gt;](#--del-key)
@@ -58,7 +58,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
 $ npm install -g lev2
 ```
 
-## CLI commands
+## CLI
 These all match the parameters used with [`levelup`](https://github.com/rvagg/node-levelup). The default encoding for the database is set to `json`.
 
 ### --get &lt;key&gt;
