@@ -1,6 +1,6 @@
 {
   "name": "lev2",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "main": "./lib/index.js",
   "bin": {
     "lev": "./bin/lev"
@@ -15,7 +15,10 @@
     "type": "git",
     "url": "https://github.com/maxlath/lev2.git"
   },
-  "files": [ "bin", "lib" ],
+  "files": [
+    "bin",
+    "lib"
+  ],
   "keywords": [
     "leveldb",
     "levelDB",
