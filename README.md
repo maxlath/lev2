@@ -54,7 +54,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
 
 ## Installation
 
-```
+```sh
 $ npm install -g lev2
 ```
 
@@ -83,11 +83,9 @@ lev --del foo
 Put or delete several values, using [`levelup` batch syntax](https://github.com/Level/levelup#dbbatcharray-options-callback-array-form)
 ```sh
 lev --batch '[
-{"type":"del","key":"father"},
-{"type":"put","key":"name","value":"Yuri Irsenovich Kim"},
-{"type":"put","key":"dob","value":"16 February 1941"},
-{"type":"put","key":"spouse","value":"Kim Young-sook"},
-{"type":"put","key":"occupation","value":"Clown"}
+{"type":"del","key":"a"},
+{"type":"put","key":"b","value":"123"},
+{"type":"put","key":"c","value":"456"}
 ]'
 ```
 or from a file
@@ -95,21 +93,17 @@ or from a file
 # there should be one entry per line
 # either as valid JSON
 echo '[
-{"type":"del","key":"father"},
-{"type":"put","key":"name","value":"Yuri Irsenovich Kim"},
-{"type":"put","key":"dob","value":"16 February 1941"},
-{"type":"put","key":"spouse","value":"Kim Young-sook"},
-{"type":"put","key":"occupation","value":"Clown"}
+{"type":"del","key":"a"},
+{"type":"put","key":"b","value":"123"},
+{"type":"put","key":"c","value":"456"}
 ]' > ops.json
 # or as newline-delimited JSON
 echo '
-{"type":"del","key":"father"}
-{"type":"put","key":"name","value":"Yuri Irsenovich Kim"}
-{"type":"put","key":"dob","value":"16 February 1941"}
-{"type":"put","key":"spouse","value":"Kim Young-sook"}
-{"type":"put","key":"occupation","value":"Clown"}
+{"type":"del","key":"a"}
+{"type":"put","key":"b","value":"123"}
+{"type":"put","key":"c","value":"456"}
 ' > ops.json
-lev --batch ./ops.json
+lev --batch ./operations.json
 ```
 
 #### Import / Export
@@ -187,7 +181,7 @@ lev --keys --start 'foo' --end 'fooz'
 ```
 
 ### --match &lt;key-pattern&gt;
-Filter keys or values by a pattern applied on the key
+Filter results by a pattern applied on the keys
 ```sh
 lev  --keys --match 'f*'
 lev  --values --match 'f*'
@@ -214,7 +208,7 @@ lev --keys --start 'foo' --end 'fooz' --limit 100 --reverse
 ```
 
 ### --count
-Output the count of the current range
+Output the count of results in the selected range
 ```sh
 # Count all the key/value pairs in the database
 lev --count
@@ -237,7 +231,7 @@ lev /tmp/test-db --keys
 ```
 
 ## --map &lt;JS function string or path&gt;
-Pass streams results in a map function
+Pass results in a map function
 * either inline
 ```sh
 lev --keys --map 'key => key.split(":")[1]'
@@ -260,7 +254,7 @@ If the function, returns null or undefined, the result is filtered-out
 Start the REPL
 ```sh
 # in the current directory
-$ lev
+$ lev .
 # somewhere else
 $ lev path/to/db
 ```

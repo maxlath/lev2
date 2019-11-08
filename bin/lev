@@ -1,7 +1,15 @@
 #!/usr/bin/env node
+const args = process.argv.slice(2)
 const fs = require('fs')
-const args = require('rc')('lev')
-require('../index')(args)
+const rc = require('rc')
+const showHelp = require('../lib/show_help')
+
+if (args.length === 0 || args.includes('--help')) {
+  showHelp()
+} else {
+  const parsedArgs = rc('lev')
+  require('../lib/index')(parsedArgs)
+}
 
 // Prevent logging an EPIPE error when piping the output
 // cf https://github.com/maxlath/wikidata-cli/issues/7
