@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/maxlath/lev2.git"
   },
+  "files": [ "bin", "lib" ],
   "keywords": [
     "leveldb",
     "levelDB",
