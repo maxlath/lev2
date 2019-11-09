@@ -248,6 +248,18 @@ lev --keys --map ./map_fn.js
 
 If the function, returns null or undefined, the result is filtered-out
 
+This can be used to update the whole database:
+```sh
+# Create a map function that returns an object with the key and an updated value
+echo 'module.exports = ({ key, value }) => ({
+  key,
+  value: value.replace('foo', 'bar')
+})' > ./update_values.js
+# Create an updated export of the database
+lev --map ./update_values.js > ./updated_db
+# And re-import
+lev --batch ./updated_db
+```
 
 ## REPL
 
