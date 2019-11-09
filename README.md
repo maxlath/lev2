@@ -12,8 +12,6 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
   * with colorized tab-completion and zsh/fish style key suggestions
   * automatically saves and reloads REPL history
 
-![screenshot](/docs/screenshot.png)
-
 ## Summary
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -270,6 +268,8 @@ lev --batch ./updated_db
 ```
 
 ## REPL
+
+![screenshot](/docs/screenshot.png)
 
 Start the REPL
 ```sh
