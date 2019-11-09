@@ -78,6 +78,10 @@ Delete a value
 ```sh
 lev --del foo
 ```
+Can be used in combination with `--keys` to generate a stream of delete operations
+```sh
+lev --keys --del | lev --batch
+```
 
 ### --batch &lt;operations&gt;
 Put or delete several values, using [`levelup` batch syntax](https://github.com/Level/levelup#dbbatcharray-options-callback-array-form)
@@ -125,16 +129,20 @@ gzip -d < leveldb.export.gz | lev /tmp/my-new-db --batch
 #### Delete by range
 The `--batch` option can also be used to delete key/values by range in 2 steps:
 ```
-# 1 - collect all the key/values to delete
-lev --all --start 'foo' --end 'fooz' > ./to_delete
-# 2 - pass the file as argument to the --batch option with a --del flag
-lev --batch ./to_delete --del
+# 1 - collect all the key to delete
+lev --keys --del --start 'foo' --end 'fooz' > ./to_delete
+# 2 - pass the file as argument to the --batch option
+lev --batch ./to_delete
 ```
 
 ### --keys
 List all the keys in the current range
 ```sh
 lev --keys
+```
+Can be used in combination with `--del` to generate a stream of delete operations
+```sh
+lev --keys --del | lev --batch
 ```
 
 ### --values
