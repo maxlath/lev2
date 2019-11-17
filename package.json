@@ -7,9 +7,10 @@
   },
   "description": "CLI & REPL for LevelDB",
   "scripts": {
+    "lint": "standard",
+    "postpublish": "git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-toc": "./scripts/update_toc",
-    "lint": "standard"
+    "update-toc": "./scripts/update_toc"
   },
   "repository": {
     "type": "git",
