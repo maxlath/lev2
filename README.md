@@ -4,6 +4,10 @@ A [CLI](https://en.wikipedia.org/wiki/Command-line_interface) and a [REPL](https
 
 This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to make [those changes](https://github.com/hxoht/lev/pull/59) available from NPM
 
+[![NPM](https://nodei.co/npm/lev2.png?stars&downloads&downloadRank)](https://npmjs.com/package/lev2/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Node](https://img.shields.io/badge/node-%3E=%20v6.4.0-brightgreen.svg)](http://nodejs.org)
+
 ## Features
 * [CLI](#cli)
   * providing many basic tools to read and write on a leveldb from the command line
