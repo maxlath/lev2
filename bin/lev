@@ -4,6 +4,37 @@ const fs = require('fs')
 const rc = require('rc')
 const showHelp = require('../lib/show_help')
 
+const validOptions = [
+  '--all',
+  '--batch',
+  '--count',
+  '--del',
+  '--end',
+  '--get',
+  '--gt',
+  '--gte',
+  '--help',
+  '--keys',
+  '--limit',
+  '--lt',
+  '--lte',
+  '--location',
+  '--map',
+  '--match',
+  '--put',
+  '--reverse',
+  '--start',
+  '--valueEncoding',
+  '--values'
+]
+
+args.forEach(arg => {
+  if (arg.startsWith('--') && !validOptions.includes(arg)) {
+    console.error(`invalid option: ${arg}\nvalid options: ${validOptions.join(' ')}`)
+    process.exit(1)
+  }
+})
+
 if (args.length === 0 || args.includes('--help')) {
   showHelp()
 } else {
