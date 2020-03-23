@@ -80,9 +80,11 @@ Delete a value
 ```sh
 lev --del foo
 ```
-Can be used in combination with `--keys` to generate a stream of delete operations
+Can be used in combination with `--keys`, or `--all`, or implicit `--all`, to generate a stream of delete operations
 ```sh
 lev --keys --del | lev --batch
+lev --all --del | lev --batch
+lev --gte abc --lte abd --del | lev --batch
 ```
 
 ### --batch &lt;operations&gt;
