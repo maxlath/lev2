@@ -80,7 +80,7 @@ Delete a value
 ```sh
 lev --del foo
 ```
-Can be used in combination with `--keys`, or `--all`, or implicit `--all`, to generate a stream of delete operations
+Can be used in combination with `--keys`, or `--all`, or implicit `--all`, to generate a stream of delete operations to be passed to the `lev --batch` command
 ```sh
 lev --keys --del | lev --batch
 lev --all --del | lev --batch
@@ -134,7 +134,7 @@ gzip -d < leveldb.export.gz | lev /tmp/my-new-db --batch
 The `--batch` option can also be used to delete key/values by range in 2 steps:
 ```
 # 1 - collect all the key to delete
-lev --keys --del --start 'foo' --end 'fooz' > ./to_delete
+lev --keys --del --gte 'foo' --lt 'fooz' > ./to_delete
 # 2 - pass the file as argument to the --batch option
 lev --batch ./to_delete
 ```
@@ -167,10 +167,18 @@ It can be used to create an export of the database, to be imported with [`--batc
 lev --all > leveldb.export
 lev /tmp/my-new-db --batch leveldb.export
 ```
+It can be used in combinaision with other options, but can then also be omitted as its the default stream mode
+```sh
+lev --all --gte 'foo' --lt 'fooz'
+# is equivalent to
+lev --gte 'foo' --lt 'fooz'
+```
 
 ### --start &lt;key-pattern&gt;
 Specify the start of the current range. You can also use `gt` or `gte`.
 ```sh
+# output all keys and values after 'foo' (implicit --all)
+lev --start 'foo'
 # output all keys after 'foo'
 lev --keys --start 'foo'
 # which is equivalent to
@@ -182,6 +190,8 @@ lev --values --start 'foo'
 ### --end &lt;key-pattern&gt;
 Specify the end of the current range. You can also use `lt` and `lte`.
 ```sh
+# output all keys and values before 'fooz' (implicit --all)
+lev --end 'fooz'
 # output all keys before 'fooz'
 lev --keys --end 'fooz'
 # which is equivalent to
