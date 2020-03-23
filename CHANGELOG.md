@@ -1,6 +1,9 @@
 # CHANGELOG
 *versions follow [SemVer](http://semver.org)*
 
+## 7.1.0 - 2020-03-23
+* Make `--all` implicit when options that suppose a stream are used (typically range commands: `--gt`, `--gte`, `--lt`, `--lte`)
+
 ## 7.0.0 - 2019-12-22
 * [Update `level-party` to `v4.0.0`](https://github.com/Level/party/blob/master/CHANGELOG.md#400---2019-12-08)
 
