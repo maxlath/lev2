@@ -1,4 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+set -eu
+
+which doctoc > /dev/null || {
+  echo "requires to have https://www.npmjs.com/package/doctoc installed, either globally or just in this repo"
+  echo "(it is not installed as a dev dependency as the use made of it it's not worth the subdependencies maintainance)"
+  exit 1
+}
+
 doctoc --github README.md
 
 # Remove 'lt' from summary URLS
