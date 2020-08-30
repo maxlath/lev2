@@ -35,7 +35,7 @@ args.forEach(arg => {
   }
 })
 
-if (args.length === 0 || args.includes('--help')) {
+if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
   showHelp()
 } else {
   const parsedArgs = rc('lev')
