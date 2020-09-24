@@ -1,6 +1,10 @@
 # CHANGELOG
 *versions follow [SemVer](http://semver.org)*
 
+## 7.2.0 - 2020-09-24
+* Add [`--prefix`](https://github.com/maxlath/lev2#--prefix) options
+* Replacing `--start` and `--end` documentation by `--gt`, `--gte`, `--lt`, `--lte`, as more explicit and consistent with LevelUp.
+
 ## 7.1.0 - 2020-03-23
 * Make `--all` implicit when options that suppose a stream are used (typically range commands: `--gt`, `--gte`, `--lt`, `--lte`)
 
