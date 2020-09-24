@@ -3,31 +3,7 @@ const args = process.argv.slice(2)
 const fs = require('fs')
 const rc = require('rc')
 const showHelp = require('../lib/show_help')
-
-const validOptions = [
-  '--all',
-  '--batch',
-  '--count',
-  '--del',
-  '--end',
-  '--get',
-  '--gt',
-  '--gte',
-  '--help',
-  '--keys',
-  '--limit',
-  '--lt',
-  '--lte',
-  '--location',
-  '--map',
-  '--match',
-  '--prefix',
-  '--put',
-  '--reverse',
-  '--start',
-  '--valueEncoding',
-  '--values'
-]
+const { validOptions } = require('../lib/options')
 
 args.forEach(arg => {
   if (arg.startsWith('--') && !validOptions.includes(arg)) {
