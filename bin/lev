@@ -21,6 +21,7 @@ const validOptions = [
   '--location',
   '--map',
   '--match',
+  '--prefix',
   '--put',
   '--reverse',
   '--start',
