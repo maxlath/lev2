@@ -33,8 +33,9 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
   - [--keys](#--keys)
   - [--values](#--values)
   - [--all](#--all)
-  - [--start &lt;key-pattern&gt;](#--start-key-pattern)
-  - [--end &lt;key-pattern&gt;](#--end-key-pattern)
+  - [--gte &lt;key-pattern&gt;](#--gte-key-pattern)
+  - [--lte &lt;key-pattern&gt;](#--lte-key-pattern)
+  - [--prefix &lt;key-pattern&gt;](#--prefix-key-pattern)
   - [--match &lt;key-pattern&gt;](#--match-key-pattern)
   - [--limit &lt;number&gt;](#--limit-number)
   - [--reverse](#--reverse)
@@ -134,7 +135,7 @@ gzip -d < leveldb.export.gz | lev /tmp/my-new-db --batch
 The `--batch` option can also be used to delete key/values by range in 2 steps:
 ```
 # 1 - collect all the key to delete
-lev --keys --del --gte 'foo' --lt 'fooz' > ./to_delete
+lev --keys --del --gte 'foo' -- 'fooz' > ./to_delete
 # 2 - pass the file as argument to the --batch option
 lev --batch ./to_delete
 ```
@@ -169,37 +170,44 @@ lev /tmp/my-new-db --batch leveldb.export
 ```
 It can be used in combinaision with other options, but can then also be omitted as its the default stream mode
 ```sh
-lev --all --gte 'foo' --lt 'fooz'
+lev --all --prefix 'foo'
 # is equivalent to
-lev --gte 'foo' --lt 'fooz'
+lev --prefix 'foo'
 ```
 
-### --start &lt;key-pattern&gt;
-Specify the start of the current range. You can also use `gt` or `gte`.
+### --gte &lt;key-pattern&gt;
+Start the range at keys **g**reater **t**han or **e**qual to `<key-pattern>`. For strictly **g**reater **t**han, use `--gt`.
 ```sh
 # output all keys and values after 'foo' (implicit --all)
-lev --start 'foo'
+lev --gte 'foo'
 # output all keys after 'foo'
-lev --keys --start 'foo'
-# which is equivalent to
 lev --keys --gte 'foo'
 # the same for values
-lev --values --start 'foo'
+lev --values --gte 'foo'
 ```
+For keys and values strictly greater tha
 
-### --end &lt;key-pattern&gt;
-Specify the end of the current range. You can also use `lt` and `lte`.
+### --lte &lt;key-pattern&gt;
+End the range at keys **l**ower **t**han or **e**qual to `<key-pattern>`. For strictly **l**ower **t**han, use `--`.
 ```sh
 # output all keys and values before 'fooz' (implicit --all)
-lev --end 'fooz'
+lev --lte 'fooz'
 # output all keys before 'fooz'
-lev --keys --end 'fooz'
-# which is equivalent to
 lev --keys --lte 'fooz'
 # the same for values
-lev --values --end 'fooz'
+lev --values --lte 'fooz'
 # output all keys between 'foo' and 'fooz'
-lev --keys --start 'foo' --end 'fooz'
+lev --keys --gte 'foo' --lte 'fooz'
+# which is equivalent to
+```
+
+### --prefix &lt;key-pattern&gt;
+Get all entries for which the key starts by a given prefix
+```sh
+# get all the keys starting by foo
+lev --keys --prefix 'foo'
+# which is equivalent to
+lev --keys --gte 'foo' --lte 'foo\uffff'
 ```
 
 ### --match &lt;key-pattern&gt;
@@ -218,7 +226,7 @@ See [`minimatch` doc](https://github.com/isaacs/minimatch#readme) for patterns
 Limit the number of records emitted in the current range.
 ```sh
 lev --keys --limit 10
-lev --values --start 'foo' --end 'fooz' --limit 100
+lev --values --prefix 'foo' --limit 100
 lev --match 'f*' --limit 10
 ```
 
@@ -226,7 +234,7 @@ lev --match 'f*' --limit 10
 Reverse the stream.
 ```sh
 lev --keys --reverse
-lev --keys --start 'foo' --end 'fooz' --limit 100 --reverse
+lev --keys --prefix 'foo' --limit 100 --reverse
 ```
 
 ### --count
@@ -235,7 +243,7 @@ Output the count of results in the selected range
 # Count all the key/value pairs in the database
 lev --count
 # Counts the keys and values between 'foo' and 'fooz'
-lev --start 'foo' --end 'fooz' --count
+lev --prefix 'foo' --count
 ```
 
 ### --valueEncoding &lt;string&gt;

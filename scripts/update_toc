@@ -9,11 +9,7 @@ which doctoc > /dev/null || {
 
 doctoc --github README.md
 
-# Remove 'lt' from summary URLS
-sed -i 's/-lt/-/g' README.md
-# Recover in docs options
-sed -i 's/--e /--lte /g' README.md
-
-# Remove 'gt' from summary URLS
-sed -i 's/gt)/)/g' README.md
-sed -i 's/gt-/-/g' README.md
+# Remove 'lt' and 'gt' from summary URLS
+sed -i -E '25,54 s/#(.*)-lt(.*)gt\)$/#\1-\2)/' README.md
+sed -i -E '25,54 s/#(.*)gt-lt/#\1/' README.md
+sed -i -E '25,54 s/ltkeygt/key/' README.md
