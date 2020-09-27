@@ -29,7 +29,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
   - [--del &lt;key&gt;](#--del-key)
   - [--batch &lt;operations&gt;](#--batch-operations)
     - [Import / Export](#import--export)
-    - [Delete by range](#delete-by-range)
+    - [Bulk delete](#bulk-delete)
   - [--keys](#--keys)
   - [--values](#--values)
   - [--all](#--all)
@@ -131,13 +131,18 @@ lev --all | gzip -9 > leveldb.export.gz
 gzip -d < leveldb.export.gz | lev /tmp/my-new-db --batch
 ```
 
-#### Delete by range
+#### Bulk delete
 The `--batch` option can also be used to delete key/values by range in 2 steps:
 ```
 # 1 - collect all the key to delete
-lev --keys --del --gte 'foo' -- 'fooz' > ./to_delete
+lev --prefix 'foo' --del > ./deletion_operations
 # 2 - pass the file as argument to the --batch option
-lev --batch ./to_delete
+lev --batch ./deletion_operations
+```
+
+The same can be done with `--match`
+```
+lev --match '*foo*' --del > ./deletion_operations
 ```
 
 ### --keys
