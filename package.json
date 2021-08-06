@@ -48,7 +48,7 @@
   },
   "homepage": "https://github.com/maxlath/lev2",
   "dependencies": {
-    "level-party": "^4.0.0",
+    "level-party": "^5.0.0",
     "minimatch": "^3.0.4",
     "rc": "^1.2.8",
     "split": "^1.0.1",
