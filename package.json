@@ -1,6 +1,6 @@
 {
   "name": "lev2",
-  "version": "7.2.4",
+  "version": "7.2.5",
   "main": "./lib/index.js",
   "bin": {
     "lev": "./bin/lev"
