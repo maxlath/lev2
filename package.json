@@ -1,14 +1,17 @@
 {
   "name": "lev2",
   "version": "7.2.5",
+  "type": "module",
   "main": "./lib/index.js",
   "bin": {
-    "lev": "./bin/lev"
+    "lev": "./bin/lev.js"
   },
   "description": "CLI & REPL for LevelDB",
   "scripts": {
-    "lint": "eslint bin/lev lib",
+    "lint": "eslint",
+    "lint-fix": "eslint --fix",
     "postpublish": "git push --tags",
+    "postinstall": "./scripts/postinstall.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-toc": "./scripts/update_toc"
   },
@@ -55,16 +58,19 @@
     "tabulate": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.14.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-unicorn": "^42.0.0",
-    "git-hooks": "^1.1.10"
+    "@eslint/config-helpers": "^0.4.1",
+    "@eslint/js": "^9.38.0",
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "eslint": "^9.38.0",
+    "eslint-plugin-import-x": "^4.16.1",
+    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-promise": "^7.2.1"
   },
   "directories": {
     "doc": "docs",
     "lib": "lib"
+  },
+    "engines": {
+    "node": ">= 18.20.5"
   }
 }

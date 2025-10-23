@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+import rc from 'rc'
+import { validOptions } from '../lib/options.js'
+import showHelp from '../lib/show_help.js'
+
 const args = process.argv.slice(2)
-const rc = require('rc')
-const showHelp = require('../lib/show_help')
-const { validOptions } = require('../lib/options')
 
 args.forEach(arg => {
   if (arg.startsWith('--') && !validOptions.includes(arg)) {
@@ -15,7 +16,8 @@ if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
   showHelp()
 } else {
   const parsedArgs = rc('lev')
-  require('../lib/index')(parsedArgs)
+  const { default: lev } = await import('../lib/index.js')
+  await lev(parsedArgs)
 }
 
 // Prevent logging an EPIPE error when piping the output
