@@ -60,6 +60,9 @@
     "@eslint/config-helpers": "^0.4.1",
     "@eslint/js": "^9.38.0",
     "@stylistic/eslint-plugin": "^5.5.0",
+    "@types/levelup": "^5.1.5",
+    "@types/node": "^24.9.1",
+    "@types/subleveldown": "^4.1.4",
     "eslint": "^9.38.0",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-n": "^17.23.1",
@@ -73,7 +76,7 @@
     "doc": "docs",
     "lib": "lib"
   },
-    "engines": {
+  "engines": {
     "node": ">= 18.20.5"
   }
 }
