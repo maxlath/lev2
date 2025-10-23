@@ -1,6 +1,6 @@
 # lev2
 
-A [CLI](https://en.wikipedia.org/wiki/Command-line_interface) and a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for managing [`LevelDB`](http://leveldb.org/) instances.
+A [CLI](https://en.wikipedia.org/wiki/Command-line_interface) for managing [`LevelDB`](http://leveldb.org/) instances.
 
 This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to make [those changes](https://github.com/hxoht/lev/pull/59) available from NPM
 
