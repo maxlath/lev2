@@ -6,7 +6,7 @@
   "bin": {
     "lev": "./bin/lev.js"
   },
-  "description": "CLI & REPL for LevelDB",
+  "description": "CLI for LevelDB",
   "scripts": {
     "lint": "eslint",
     "lint-fix": "eslint --fix",
@@ -29,7 +29,6 @@
     "level-db",
     "levelup",
     "level",
-    "repl",
     "database",
     "databases",
     "nodebase",

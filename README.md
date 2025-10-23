@@ -12,9 +12,7 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
 * [CLI](#cli)
   * providing many basic tools to read and write on a leveldb from the command line
   * import / export, and delete by range
-* [REPL](#repl)
-  * with colorized tab-completion and zsh/fish style key suggestions
-  * automatically saves and reloads REPL history
+* [REPL](#repl): :warning: This feature was unmaintained and removed in `v8.0.0`. If you need it, use an earlier version or the original `lev` package.
 
 ## Summary
 
@@ -43,15 +41,6 @@ This repo is a **fork** of [`lev`](https://github.com/hxoht/lev), originally to 
   - [--valueEncoding &lt;string&gt;](#--valueencoding-string)
   - [--location &lt;string&gt;](#--location-string)
 - [--map &lt;JS function string or path&gt;](#--map-js-function-string-or-path)
-- [REPL](#repl)
-  - [GET &lt;key&gt;](#get-key)
-  - [PUT &lt;key&gt; &lt;value&gt;](#put-key-value)
-  - [DEL &lt;key&gt;](#del-key)
-  - [LS](#ls)
-  - [START &lt;key-pattern&gt;](#start-key-pattern)
-  - [END &lt;key-pattern&gt;](#end-key-pattern)
-  - [LIMIT &lt;number&gt;](#limit-number)
-  - [REVERSE](#reverse)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -295,42 +284,3 @@ lev --map ./update_values.js > ./updated_db
 # And re-import
 lev --batch ./updated_db
 ```
-
-## REPL
-
-![screenshot](/docs/screenshot.png)
-
-Start the REPL
-```sh
-# in the current directory
-$ lev .
-# somewhere else
-$ lev path/to/db
-```
-
-Use upper or lower case for the following commands.
-
-### GET &lt;key&gt;
-Get a key from the database.
-
-### PUT &lt;key&gt; &lt;value&gt;
-Put a value into the database. If you have `keyEncoding` or `valueEncoding`
-set to `json`, these values will be parsed from strings into `json`.
-
-### DEL &lt;key&gt;
-Delete a key from the database.
-
-### LS
-Get all the keys in the current range.
-
-### START &lt;key-pattern&gt;
-Defines the start of the current range. You can also use `GT` or `GTE`.
-
-### END &lt;key-pattern&gt;
-Defines the end of the current range. You can also use `LT` or `LTE`.
-
-### LIMIT &lt;number&gt;
-Limit the number of records in the current range (defaults to 5000).
-
-### REVERSE
-Reverse the records in the current range.
