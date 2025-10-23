@@ -12,7 +12,7 @@
     "lint-fix": "eslint --fix",
     "postpublish": "git push --tags",
     "postinstall": "./scripts/postinstall.sh",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./scripts/run_tests.sh",
     "update-toc": "./scripts/update_toc"
   },
   "repository": {
@@ -63,7 +63,11 @@
     "eslint": "^9.38.0",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-n": "^17.23.1",
-    "eslint-plugin-promise": "^7.2.1"
+    "eslint-plugin-promise": "^7.2.1",
+    "globals": "^16.4.0",
+    "mocha": "^11.7.4",
+    "should": "^13.2.3",
+    "tiny-chalk": "^3.0.2"
   },
   "directories": {
     "doc": "docs",
