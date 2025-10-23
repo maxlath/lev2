@@ -69,6 +69,8 @@ export default defineConfig([
       'prefer-arrow-callback': [ 'error' ],
       'prefer-const': [ 'off' ],
 
+      'promise/always-return': 'off',
+
       // See https://eslint.style/rules
       '@stylistic/array-bracket-spacing': [ 'error', 'always' ],
       '@stylistic/arrow-parens': [ 'error', 'as-needed' ],
