@@ -1,5 +1,5 @@
 import 'should'
-import { getRandomString, shellExecLev } from './utils.js'
+import { getRandomString, shellExecLev, testDb } from './utils.js'
 
 describe('cli', () => {
   describe('get', () => {
@@ -67,6 +67,32 @@ describe('cli', () => {
         const lines = prefixStdout.trim().split('\n')
         lines.length.should.equal(1)
         lines[0].should.equal(json)
+      })
+    })
+
+    describe('binary', async () => {
+      const num = Date.now()
+      const buffer = Buffer.alloc(6)
+      buffer.writeUIntBE(num, 0, 6)
+
+      before(async () => {
+        await testDb.put('foo', buffer)
+      })
+
+      describe('hex', () => {
+        it('--get', async () => {
+          const { stdout } = await shellExecLev('--get foo --valueEncoding hex')
+          const decodedNum = Buffer.from(stdout, 'hex').readUIntBE(0, 6)
+          decodedNum.should.equal(num)
+        })
+      })
+
+      describe('base64', () => {
+        it('--get', async () => {
+          const { stdout } = await shellExecLev('--get foo --valueEncoding base64')
+          const decodedNum = Buffer.from(stdout, 'base64').readUIntBE(0, 6)
+          decodedNum.should.equal(num)
+        })
       })
     })
   })

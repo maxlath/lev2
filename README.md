@@ -241,9 +241,11 @@ lev --prefix 'foo' --count
 ```
 
 ### --valueEncoding &lt;string&gt;
-Specify the encoding for the values (Defaults to 'json').
+Specify the encoding for the values (Defaults to 'utf8').
 ```sh
-lev --values --valueEncoding buffer
+lev --values --valueEncoding json
+lev --values --valueEncoding hex
+lev --values --valueEncoding base64
 ```
 
 ### --location &lt;string&gt;

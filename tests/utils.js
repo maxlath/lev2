@@ -1,6 +1,7 @@
 import { exec } from 'node:child_process'
 import { promisify } from 'node:util'
 import { grey, yellow } from 'tiny-chalk'
+import level from 'level-party'
 
 const { LEV_TESTS_DIR } = process.env
 
@@ -33,3 +34,5 @@ export function shouldNotBeCalled(res) {
 }
 
 export const getRandomString = () => Math.random().toString(36).slice(2, 10)
+
+export const testDb = level(LEV_TESTS_DIR)
