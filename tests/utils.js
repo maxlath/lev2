@@ -10,12 +10,17 @@ const execAsync = promisify(exec)
 export async function shellExecLev (cmd, options = {}) {
   const command = `./bin/lev.js ${LEV_TESTS_DIR} ${cmd}`
   console.error(grey(command))
-  let { stdout, stderr } = await execAsync(command)
-  if (options.trim !== false) {
-    stdout = stdout.trim()
-    stderr = stderr.trim()
+  try {
+    let { stdout, stderr } = await execAsync(command)
+    if (options.trim !== false) {
+      stdout = stdout.trim()
+      stderr = stderr.trim()
+    }
+    return { stdout, stderr }
+  } catch (err) {
+    console.error(err.message, err.stdout, err.stderr)
+    throw err
   }
-  return { stdout, stderr }
 }
 
 // A function to quickly fail when a test gets an undesired positive answer
