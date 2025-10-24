@@ -1,6 +1,9 @@
 # CHANGELOG
 *versions follow [SemVer](http://semver.org)*
 
+## 8.1.0 - 2025-10-24
+* Add [`--keyEncoding`](https://github.com/maxlath/lev2#--keyencoding-string) option
+
 ## 8.0.0 - 2025-10-23
 **BREAKING CHANGES**:
   * Converted module to ESM, requiring NodeJS >= `v18.20.5`
