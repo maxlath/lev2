@@ -23,7 +23,7 @@ export default defineConfig([
     jsx: false,
   }),
   {
-    files: [ 'bin/**/*.js', 'lib/**/*.js', '*.js' ],
+    files: [ 'bin/**/*.js', 'lib/**/*.js', 'tests/**/*.js', '*.js' ],
     languageOptions: {
       globals: globals.node,
     },

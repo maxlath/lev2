@@ -63,6 +63,9 @@ lev --get foo
 Put a value
 ```sh
 lev --put foo --value bar
+lev --put foo --value '{"a": 123}' --valueEncoding json
+lev --put foo --value AZoV7p5e --valueEncoding base64
+lev --put foo --value 019a15ede51d --valueEncoding hex
 ```
 
 ### --del &lt;key&gt;
