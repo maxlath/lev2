@@ -50,8 +50,9 @@
   },
   "homepage": "https://github.com/maxlath/lev2",
   "dependencies": {
-    "level-party": "^5.1.1",
+    "level-read-stream": "^2.0.0",
     "minimatch": "^3.0.4",
+    "rave-level": "^1.0.0",
     "rc": "^1.2.8",
     "split": "^1.0.1",
     "tabulate": "^1.0.0"
@@ -60,9 +61,8 @@
     "@eslint/config-helpers": "^0.4.1",
     "@eslint/js": "^9.38.0",
     "@stylistic/eslint-plugin": "^5.5.0",
-    "@types/levelup": "^5.1.5",
     "@types/node": "^24.9.1",
-    "@types/subleveldown": "^4.1.4",
+    "@types/readable-stream": "^4.0.22",
     "eslint": "^9.38.0",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-n": "^17.23.1",
