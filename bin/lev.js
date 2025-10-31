@@ -16,6 +16,10 @@ if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
   showHelp()
 } else {
   const parsedArgs = rc('lev')
+  parsedArgs.limit ??= parsedArgs.n
+  parsedArgs.keys ??= parsedArgs.k
+  parsedArgs.values ??= parsedArgs.v
+  parsedArgs.all ??= parsedArgs.a
   const { default: lev } = await import('../lib/index.js')
   await lev(parsedArgs)
 }
