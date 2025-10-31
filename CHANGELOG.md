@@ -13,6 +13,7 @@
 
 ## 8.0.0 - 2025-10-23
 **BREAKING CHANGES**:
+  * Replace [`level-party`](https://github.com/level/level-party) with [`rave-level`](https://github.com/level/rave-level)
   * Converted module to ESM, requiring NodeJS >= `v18.20.5`
   * Removed the unmaintained REPL feature. If you need it, use and/or fork an earlier version or the original `lev` package.
   * Drop the `OK` message on successful `put`, following the convention that silent output and zero code exit means that it worked
