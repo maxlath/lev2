@@ -11,7 +11,7 @@
     "lint": "eslint",
     "lint-fix": "eslint --fix",
     "postpublish": "git push --tags",
-    "postinstall": "./scripts/postinstall.sh",
+    "postinstall": "if [ -d scripts/postinstall.sh ]; then ./scripts/postinstall.sh ; fi",
     "test": "./scripts/run_tests.sh",
     "update-toc": "./scripts/update_toc"
   },
