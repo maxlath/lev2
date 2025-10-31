@@ -1,6 +1,13 @@
 # CHANGELOG
 *versions follow [SemVer](http://semver.org)*
 
+## 8.2.0 - 2025-10-31
+* Add some arguments shortcuts:
+  * `-k` => `--keys`
+  * `-v` => `--values`
+  * `-a` => `--all`
+  * `-n` => `--limit`
+
 ## 8.1.0 - 2025-10-24
 * Add [`--keyEncoding`](https://github.com/maxlath/lev2#--keyencoding-string) option
 
