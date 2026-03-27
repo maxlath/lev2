@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxlath/lev2.git"
+    "url": "https://codeberg.org/maxlath/lev2"
   },
   "files": [
     "bin",
@@ -46,9 +46,9 @@
   "author": "maxlath",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxlath/lev2/issues"
+    "url": "https://codeberg.org/maxlath/lev2/issues"
   },
-  "homepage": "https://github.com/maxlath/lev2",
+  "homepage": "https://codeberg.org/maxlath/lev2",
   "dependencies": {
     "level-read-stream": "^2.0.0",
     "minimatch": "^3.0.4",
